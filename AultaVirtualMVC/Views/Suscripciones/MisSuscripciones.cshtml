@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AulaVirtualMVC.Models.Suscripcion>
+
+@{
+    ViewData["Title"] = "Mis Cursos";
+    
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedioPago)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedioPago.Nombre)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Curso.ID" asp-controller="Cursos">Ver Curso</a>
+             
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
